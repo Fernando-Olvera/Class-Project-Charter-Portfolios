@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!-- saved from url=(0105)file:///C:/Users/Fernando/Downloads/class_project_portfolio_4_person_template_single_file_html%20(1).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class Project Portfolio – Team of 4</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827f2;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --link: #93c5fd;
+      --ring: #334155;
+      --green: #22c55e;
+      --yellow: #eab308;
+      --red: #ef4444;
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: radial-gradient(1200px 600px at 80% -10%, #1f2937, var(--bg)); color: var(--text); }
+
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(10px); background: linear-gradient(180deg, rgba(17,24,39,.85), rgba(17,24,39,.55)); border-bottom: 1px solid #1f2937; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 18px 20px; }
+    .title { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+    .title h1 { margin:0; font-size: clamp(20px, 2vw + 10px, 34px); letter-spacing:.2px; }
+    .sub { color: var(--muted); font-size: 14px; }
+
+    .toolbar { margin-top: 10px; display:flex; gap:10px; flex-wrap: wrap; align-items:center; }
+    .toolbar .pill { display:inline-flex; align-items:center; gap:10px; background: var(--panel); border:1px solid var(--ring); padding: 8px 12px; border-radius: 999px; box-shadow: var(--shadow); }
+    .toolbar select, .toolbar button { background: #0b1220; color: var(--text); border:1px solid var(--ring); padding:8px 10px; border-radius: 10px; cursor: pointer; }
+
+    main { max-width: 1200px; margin: 20px auto; padding: 0 20px 80px; display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:16px; }
+
+    details.card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border:1px solid #1f2937; border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; }
+    details.card[open] { outline: 1px solid #2a3350; }
+
+    summary { list-style:none; cursor:pointer; display:flex; align-items:center; gap:12px; padding: 16px 16px; background: var(--card); }
+    summary::-webkit-details-marker { display:none; }
+    .chev { transition: transform .25s ease; }
+    details[open] .chev { transform: rotate(90deg); }
+
+    .person { font-weight: 600; font-size: 18px; }
+    .proj { color: var(--muted); font-size: 14px; }
+
+    .status-dot { width: 12px; height: 12px; border-radius: 999px; box-shadow: 0 0 0 3px rgba(255,255,255,.06) inset, 0 0 0 1px #111; }
+    .g { background: var(--green); }
+    .y { background: var(--yellow); }
+    .r { background: var(--red); }
+
+    .content { padding: 16px; display:grid; gap:14px; }
+
+    .row { background: rgba(2,6,23,.4); border: 1px solid #1f2937; border-radius: 14px; padding: 12px; }
+    .label { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; display:flex; align-items:center; gap:8px; }
+
+    .health { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .badge { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--ring); padding: 6px 10px; border-radius: 999px; font-size: 13px; background:#0b1220; cursor:pointer; user-select:none; }
+    .badge input { accent-color: currentColor; }
+
+    .field[contenteditable="true"] { outline: none; border-radius: 8px; padding: 4px 6px; }
+    .field[contenteditable="true"][data-placeholder]:empty:before { content: attr(data-placeholder); color: #6b7280; }
+    .field[contenteditable="true"]:focus { box-shadow: 0 0 0 2px #374151 inset; }
+
+    .executive-summary { max-width: 1200px; margin: 20px auto; padding: 20px; background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--ring); }
+    .executive-summary h2 { margin-top: 0; color: var(--link); }
+    .executive-summary p { color: var(--text); line-height: 1.6; }
+
+    .footer-note { color: var(--muted); font-size: 12px; text-align:center; margin: 20px auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="title">
+        <h1>Class Project Charter Portfolios</h1>
+      </div>
+      <div class="toolbar">
+        <label class="pill">Filter status:
+          <select id="filter">
+            <option value="all" selected="">All</option>
+            <option value="on">On Track</option>
+            <option value="risk">At Risk</option>
+            <option value="off">Off Track</option>
+          </select>
+        </label>
+        <button id="expandAll">Expand all</button>
+        <button id="collapseAll">Collapse all</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="executive-summary">
+    <h2>Executive Summary</h2>
+    <p contenteditable="true" data-placeholder="Write a short overview (4–6 sentences) summarizing the purpose of this collective portfolio page, the shared course objectives, and how each individual project aligns with class learning outcomes. This placeholder is editable for your final group submission."><br></p>
+  </section>
+
+  <main id="cards">
+    <!-- ==== PERSON 1 (Fernando Olvera) ==== -->
+    <details class="card" data-status="on" open="">
+      <summary>
+        <span class="status-dot g"></span>
+        <span class="person">Fernando Olvera</span>
+        <span class="proj">– IT Field Career</span>
+      </summary>
+      <div class="content">
+        <div class="row">
+          <div class="label">Project Link</div>
+          <div class="field" contenteditable="true">https://fernando-olvera.github.io/HTML-Project-Charter/</div>
+        </div>
+        <div class="row">
+          <div class="label">Project Owner</div>
+          <div class="field" contenteditable="true">Fernando Olvera</div>
+        </div>
+        <div class="row">
+          <div class="label">Health Bubble</div>
+          <div class="health">
+            <label class="badge" style="color:var(--green)"><input type="radio" name="h1" checked="" value="on"> <span class="status-dot g"></span> On Track</label>
+            <label class="badge" style="color:var(--yellow)"><input type="radio" name="h1" value="risk"> <span class="status-dot y"></span> At Risk</label>
+            <label class="badge" style="color:var(--red)"><input type="radio" name="h1" value="off"> <span class="status-dot r"></span> Off Track</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="label">Summary (2–3 sentences)</div>
+          <div class="field" contenteditable="true">This project centers on securing an entry-level IT role. It highlights key IT competencies, professional growth, and long-term career objectives.&nbsp;<div><br></div><div>The project integrates academic achievements, skill-gap identification, and developmental planning into a structured pathway toward a successful career in information technology.</div></div>
+        </div>
+        <div class="row">
+          <div class="label">Challenge / Risk</div>
+          <div class="field" contenteditable="true">Balancing multiple professional development tasks (such as skill-building, resume updates, and portfolio refinement)<div><br></div><div>Managing other coursework demands consistent time management. Ensuring the project stays aligned with evolving career goals is the main challenge.</div></div>
+        </div>
+        <div class="row">
+          <div class="label">Next Step</div>
+          <div class="field" contenteditable="true">Continue learning SQL through online resources and finalize the skill gap deliverable for the upcoming milestone.</div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ==== PERSON 2 ==== -->
+    <details class="card" data-status="risk" open="">
+      <summary>
+        <span class="status-dot y"></span>
+        <span class="person">Person 2</span>
+        <span class="proj">– Project Entry</span>
+      </summary>
+      <div class="content">
+        <div class="row"><div class="label">Project Name</div><div class="field" contenteditable="true" data-placeholder="Project name…"></div></div>
+        <div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true" data-placeholder="Owner name…"></div></div>
+        <div class="row">
+          <div class="label">Health Bubble</div>
+          <div class="health">
+            <label class="badge" style="color:var(--green)"><input type="radio" name="h2" value="on"> <span class="status-dot g"></span> On Track</label>
+            <label class="badge" style="color:var(--yellow)"><input type="radio" name="h2" checked="" value="risk"> <span class="status-dot y"></span> At Risk</label>
+            <label class="badge" style="color:var(--red)"><input type="radio" name="h2" value="off"> <span class="status-dot r"></span> Off Track</label>
+          </div>
+        </div>
+        <div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true" data-placeholder="High-level overview of status and focus…"></div></div>
+        <div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true" data-placeholder="Key blockers or risks…"></div></div>
+        <div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true" data-placeholder="Next milestone / decision…"></div></div>
+      </div>
+    </details>
+
+    <!-- ==== PERSON 3 ==== -->
+    <details class="card" data-status="risk" open="">
+      <summary>
+        <span class="status-dot y"></span>
+        <span class="person">Person 3</span>
+        <span class="proj">– Project Entry</span>
+      </summary>
+      <div class="content">
+        <div class="row"><div class="label">Project Name</div><div class="field" contenteditable="true"></div></div>
+        <div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true"></div></div>
+        <div class="row">
+          <div class="label">Health Bubble</div>
+          <div class="health">
+            <label class="badge" style="color:var(--green)"><input type="radio" name="h3" value="on"> <span class="status-dot g"></span> On Track</label>
+            <label class="badge" style="color:var(--yellow)"><input type="radio" name="h3" value="risk"> <span class="status-dot y"></span> At Risk</label>
+            <label class="badge" style="color:var(--red)"><input type="radio" name="h3" checked="" value="off"> <span class="status-dot r"></span> Off Track</label>
+          </div>
+        </div>
+        <div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true"></div></div>
+        <div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true"></div></div>
+        <div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true"></div></div>
+      </div>
+    </details>
+
+    <!-- ==== PERSON 4 ==== -->
+    <details class="card" data-status="on" open="">
+      <summary>
+        <span class="status-dot g"></span>
+        <span class="person">Person 4</span>
+        <span class="proj">– Project Entry</span>
+      </summary>
+      <div class="content">
+        <div class="row"><div class="label">Project Name</div><div class="field" contenteditable="true"></div></div>
+        <div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true"></div></div>
+        <div class="row">
+          <div class="label">Health Bubble</div>
+          <div class="health">
+            <label class="badge" style="color:var(--green)"><input type="radio" name="h4" checked="" value="on"> <span class="status-dot g"></span> On Track</label>
+            <label class="badge" style="color:var(--yellow)"><input type="radio" name="h4" value="risk"> <span class="status-dot y"></span> At Risk</label>
+            <label class="badge" style="color:var(--red)"><input type="radio" name="h4" value="off"> <span class="status-dot r"></span> Off Track</label>
+          </div>
+        </div>
+        <div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true"></div></div>
+        <div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true"></div></div>
+        <div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true"></div></div>
+      </div>
+    </details>
+  </main>
+
+  <div class="footer-note wrap">Tip: Click any placeholder text to edit. Use the status radios to set each card’s health bubble and the filter above to view only certain states.</div>
+
+  <script>
+    document.querySelectorAll('.health input[type="radio"]').forEach(r => {
+      r.addEventListener('change', e => {
+        const card = e.target.closest('details.card');
+        if (!card) return;
+        const val = e.target.value;
+        card.setAttribute('data-status', val);
+        const dot = card.querySelector('summary .status-dot');
+        dot.classList.remove('g','y','r');
+        if (val === 'on') dot.classList.add('g');
+        if (val === 'risk') dot.classList.add('y');
+        if (val === 'off') dot.classList.add('r');
+      });
+    });
+
+    const filter = document.getElementById('filter');
+    const cards = Array.from(document.querySelectorAll('details.card'));
+    filter.addEventListener('change', () => {
+      const v = filter.value;
+      cards.forEach(c => {
+        const show = v === 'all' || c.getAttribute('data-status') === v;
+        c.style.display = show ? '' : 'none';
+      });
+    });
+
+    document.getElementById('expandAll').addEventListener('click', () => cards.for</script></body></html>
