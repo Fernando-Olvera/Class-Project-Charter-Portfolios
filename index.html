@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0105)file:///C:/Users/Fernando/Downloads/class_project_portfolio_4_person_template_single_file_html%20(1).html -->
+<!-- saved from url=(0117)file:///C:/Users/Fernando/Downloads/Class%20Project%20Portfolios%20%E2%80%93%20Group%204%20(executive%20updated).html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,9 +94,16 @@
   </header>
 
   <section class="executive-summary">
-    <h2>Executive Summary</h2>
-    <p contenteditable="true" data-placeholder="Write a short overview (4–6 sentences) summarizing the purpose of this collective portfolio page, the shared course objectives, and how each individual project aligns with class learning outcomes. This placeholder is editable for your final group submission."><br></p>
-  </section>
+  <h2> Portfolio Executive Summary</h2>
+  <p>Group 4 Project Portfolio consists of <b>4 individual student projects</b>. As of this update, 
+    <b>2 members have provided progress updates (50%)</b>, while <b>2 members have not yet submitted their reports (50%)</b>. 
+    Overall portfolio visibility is therefore partial,</p>
+  
+  <p>
+    Over the next reporting cycle, priority will be given to <b>collecting outstanding updates</b> to ensure balanced representation across the group. 
+    Maintaining consistent communication and scheduling brief status check-ins may help improve coordination and ensure alignment with course deliverables.
+  </p>
+</section>
 
   <main id="cards">
     <!-- ==== PERSON 1 (Fernando Olvera) ==== -->
@@ -142,12 +149,12 @@
     <details class="card" data-status="risk" open="">
       <summary>
         <span class="status-dot y"></span>
-        <span class="person">Person 2</span>
-        <span class="proj">– Project Entry</span>
+        <span class="person">Tehreem Butt</span>
+        <span class="proj">– Data Analysis Job Entry</span>
       </summary>
       <div class="content">
-        <div class="row"><div class="label">Project Name</div><div class="field" contenteditable="true" data-placeholder="Project name…"></div></div>
-        <div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true" data-placeholder="Owner name…"></div></div>
+        <div class="row"><div class="label">Project Link</div><div class="field" contenteditable="true">https://mito-iyuu.github.io/Project-Charter-Portfolio/</div></div>
+        <div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true">Tehreem Butt</div></div>
         <div class="row">
           <div class="label">Health Bubble</div>
           <div class="health">
@@ -156,9 +163,9 @@
             <label class="badge" style="color:var(--red)"><input type="radio" name="h2" value="off"> <span class="status-dot r"></span> Off Track</label>
           </div>
         </div>
-        <div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true" data-placeholder="High-level overview of status and focus…"></div></div>
-        <div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true" data-placeholder="Key blockers or risks…"></div></div>
-        <div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true" data-placeholder="Next milestone / decision…"></div></div>
+        <div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true">This project focuses on applying to at least one data analytics position by the end of the semester. In this project I will identify skill-gaps, showcase my abilities through projects, and further develop my abilities in order to confidently and readily enter the data analytics field.</div></div>
+        <div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true">One risk is being unable to complete the google data analytics course in time due to time constraints and schedule conflicts. A challenge is deciding which task to prioritize.</div></div>
+        <div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true">Researching data analytics positions to identify skill gaps, continue developing my portfolio, and working on my certificate.</div></div>
       </div>
     </details>
 
@@ -214,28 +221,56 @@
   <div class="footer-note wrap">Tip: Click any placeholder text to edit. Use the status radios to set each card’s health bubble and the filter above to view only certain states.</div>
 
   <script>
-    document.querySelectorAll('.health input[type="radio"]').forEach(r => {
-      r.addEventListener('change', e => {
-        const card = e.target.closest('details.card');
-        if (!card) return;
-        const val = e.target.value;
-        card.setAttribute('data-status', val);
-        const dot = card.querySelector('summary .status-dot');
-        dot.classList.remove('g','y','r');
-        if (val === 'on') dot.classList.add('g');
-        if (val === 'risk') dot.classList.add('y');
-        if (val === 'off') dot.classList.add('r');
-      });
-    });
+  // Change handler: update card data-status and the summary dot
+  document.querySelectorAll('.health input[type="radio"]').forEach(r => {
+    r.addEventListener('change', e => {
+      const card = e.target.closest('details.card');
+      if (!card) return;
+      const val = e.target.value;
+      card.setAttribute('data-status', val);
 
-    const filter = document.getElementById('filter');
-    const cards = Array.from(document.querySelectorAll('details.card'));
-    filter.addEventListener('change', () => {
-      const v = filter.value;
-      cards.forEach(c => {
-        const show = v === 'all' || c.getAttribute('data-status') === v;
-        c.style.display = show ? '' : 'none';
-      });
+      const dot = card.querySelector('summary .status-dot');
+      if (!dot) return;
+      dot.classList.remove('g','y','r');
+      if (val === 'on')  dot.classList.add('g');
+      if (val === 'risk') dot.classList.add('y');
+      if (val === 'off') dot.classList.add('r');
     });
+  });
 
-    document.getElementById('expandAll').addEventListener('click', () => cards.for</script></body></html>
+  // Filter by status
+  const filter = document.getElementById('filter');
+  const cards = Array.from(document.querySelectorAll('details.card'));
+  function applyFilter() {
+    const v = filter.value;
+    cards.forEach(c => {
+      const show = v === 'all' || c.getAttribute('data-status') === v;
+      c.style.display = show ? '' : 'none';
+    });
+  }
+  filter.addEventListener('change', applyFilter);
+
+  // Expand / Collapse all
+  document.getElementById('expandAll').addEventListener('click', () => {
+    cards.forEach(c => { c.open = true; });
+  });
+  document.getElementById('collapseAll').addEventListener('click', () => {
+    cards.forEach(c => { c.open = false; });
+  });
+
+  // On load: ensure dots match each card's current data-status
+  function syncDotsToStatus() {
+    cards.forEach(card => {
+      const status = card.getAttribute('data-status');
+      const dot = card.querySelector('summary .status-dot');
+      if (!dot) return;
+      dot.classList.remove('g','y','r');
+      if (status === 'on')  dot.classList.add('g');
+      if (status === 'risk') dot.classList.add('y');
+      if (status === 'off') dot.classList.add('r');
+    });
+  }
+
+  syncDotsToStatus();
+  applyFilter();
+</script></body></html>
