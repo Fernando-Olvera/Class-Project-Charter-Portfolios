@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0096)file:///C:/Users/Fernando/Downloads/Class%20Project%20Portfolio%20%E2%80%93%20Team%20of%204.html -->
+<!-- saved from url=(0065)file:///C:/Users/Fernando/Downloads/index_with_meeting_notes.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Class Project Portfolio – Team of 4</title>
-  <style>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Class Project Portfolio – Team of 4</title>
+<style>
     :root {
       --bg: #0f172a;
       --panel: #111827f2;
@@ -70,155 +69,169 @@
     .executive-summary p { color: var(--text); line-height: 1.6; }
 
     .footer-note { color: var(--muted); font-size: 12px; text-align:center; margin: 20px auto; }
-  </style>
+  
+/* Meeting notes panel styling */
+.meeting-notes {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--ring);
+}
+.meeting-notes h2 {
+  color: var(--link);
+  margin-top: 0;
+}
+.meeting-notes .row { margin-top: 10px; }
+.meeting-notes .label { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; display:flex; align-items:center; gap:8px; }
+
+/* Checklist styling for participant selection */
+.checklist { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.checklist label { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--ring); padding:6px 10px; border-radius:999px; background:#0b1220; user-select:none; }
+.checklist input { accent-color: currentColor; }
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <div class="title">
-        <h1>Class Project Charter Portfolios</h1>
-      </div>
-      <div class="toolbar">
-        <label class="pill">Filter status:
+<header>
+<div class="wrap">
+<div class="title">
+<h1>Class Project Charter Portfolios</h1>
+</div>
+<div class="toolbar">
+<label class="pill">Filter status:
           <select id="filter">
-            <option value="all" selected="">All</option>
-            <option value="on">On Track</option>
-            <option value="risk">At Risk</option>
-            <option value="off">Off Track</option>
-          </select>
-        </label>
-        <button id="expandAll">Expand all</button>
-        <button id="collapseAll">Collapse all</button>
-      </div>
-    </div>
-  </header>
-
-  <section class="executive-summary">
-  <h2> Portfolio Executive Summary</h2>
-  <p>Group 4 Project Portfolio consists of <b>4 individual student projects</b>. As of this update, 11/2/2025, 
+<option selected="" value="all">All</option>
+<option value="on">On Track</option>
+<option value="risk">At Risk</option>
+<option value="off">Off Track</option>
+</select>
+</label>
+<button id="expandAll">Expand all</button>
+<button id="collapseAll">Collapse all</button>
+</div>
+</div>
+</header>
+<section class="meeting-notes"><h2>Team Check-In &amp; Meeting Notes</h2><div class="row"><div class="label">Date &amp; Time</div><div class="field" contenteditable="true" data-placeholder="e.g., November 3, 2025 – 5:00 PM">Thursday October 30, 2025 @ 10:30 AM</div></div><div class="row"><div class="label">Participants</div><div class="checklist"><label><input name="p_fernando" type="checkbox"> Fernando Olvera</label><label><input name="p_tehreem" type="checkbox"> Tehreem Butt</label><label><input name="p_mohammad" type="checkbox"> Mohammad Ansari</label><label><input name="p_luis" type="checkbox"> Luis Medina</label></div></div><div class="row"><div class="label">Discussion Summary</div><div class="field" contenteditable="true" data-placeholder="Type key notes here (e.g., blockers, themes, next steps)..."><ul><li>Each member shared their current project status and progress updates. Luis Medina mentioned he had received feedback from professor and was working on including new details to his project charter.</li><li>Reviewed challenges and blockers for each team member; identified support opportunities among peers.</li><li>Fernando -On Track</li><li>Tehreem -&nbsp; At Risk (Certification Progress)</li><li>Mohammad - On Track</li><li>Luis - Off Track (Delayed due to revamp)</li></ul></div></div></section><section class="executive-summary">
+<h2> Portfolio Executive Summary</h2>
+<p>Group 4 Project Portfolio consists of <b>4 individual student projects</b>. As of this update, 11/2/2025, 
     <b>3 members have provided progress updates (75%)</b>, while <b>1 member has not yet submitted their report (25%)</b>. 
     Overall portfolio visibility is therefore partial,</p>
-  
-  <p>Remaining team member was given feedback from Professor and will update their information card when available. Maintaining consistent communication and scheduling brief status check-ins may help improve coordination and ensure alignment with course deliverables.
+<p>Remaining team member was given feedback from Professor and will update their information card when available. Maintaining consistent communication and scheduling brief status check-ins may help improve coordination and ensure alignment with course deliverables.
   </p>
 </section>
-
-  <main id="cards">
-    <!-- ==== PERSON 1 (Fernando Olvera) ==== -->
-    <details class="card" data-status="on" open="">
-      <summary>
-        <span class="status-dot g"></span>
-        <span class="person">Fernando Olvera</span>
-        <span class="proj">– IT Field Career</span>
-      </summary>
-      <div class="content">
-        <div class="row">
-          <div class="label">Project Link</div>
-          <div class="field" contenteditable="true">https://fernando-olvera.github.io/HTML-Project-Charter/</div>
-        </div>
-        <div class="row">
-          <div class="label">Project Owner</div>
-          <div class="field" contenteditable="true">Fernando Olvera</div>
-        </div>
-        <div class="row">
-          <div class="label">Health Bubble</div>
-          <div class="health">
-            <label class="badge" style="color:var(--green)"><input type="radio" name="h1" checked="" value="on"> <span class="status-dot g"></span> On Track</label>
-            <label class="badge" style="color:var(--yellow)"><input type="radio" name="h1" value="risk"> <span class="status-dot y"></span> At Risk</label>
-            <label class="badge" style="color:var(--red)"><input type="radio" name="h1" value="off"> <span class="status-dot r"></span> Off Track</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label">Summary (2–3 sentences)</div>
-          <div class="field" contenteditable="true">This project centers on securing an entry-level IT role. It highlights key IT competencies, professional growth, and long-term career objectives.&nbsp;<div><br></div><div>The project integrates academic achievements, skill-gap identification, and developmental planning into a structured pathway toward a successful career in information technology.</div></div>
-        </div>
-        <div class="row">
-          <div class="label">Challenge / Risk</div>
-          <div class="field" contenteditable="true">Balancing multiple professional development tasks (such as skill-building, resume updates, and applying to multiple positions.)<div><br></div><div>Managing other coursework demands consistent time management. Ensuring the project stays aligned with evolving career goals is the main challenge.</div></div>
-        </div>
-        <div class="row">
-          <div class="label">Next Step</div>
-          <div class="field" contenteditable="true">Continue learning SQL through online resources for the upcoming milestone.&nbsp; Skill completion at 50% and ON TRACK.</div>
-        </div>
-      </div>
-    </details>
-
-    <!-- ==== PERSON 2 ==== -->
-    <details class="card" data-status="risk" open="">
-      <summary>
-        <span class="status-dot y"></span>
-        <span class="person">Tehreem Butt</span>
-        <span class="proj">– Data Analysis Job Entry</span>
-      </summary>
-      <div class="content">
-        <div class="row"><div class="label">Project Link</div><div class="field" contenteditable="true">https://mito-iyuu.github.io/Project-Charter-Portfolio/</div></div>
-        <div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true">Tehreem Butt</div></div>
-        <div class="row">
-          <div class="label">Health Bubble</div>
-          <div class="health">
-            <label class="badge" style="color:var(--green)"><input type="radio" name="h2" value="on"> <span class="status-dot g"></span> On Track</label>
-            <label class="badge" style="color:var(--yellow)"><input type="radio" name="h2" checked="" value="risk"> <span class="status-dot y"></span> At Risk</label>
-            <label class="badge" style="color:var(--red)"><input type="radio" name="h2" value="off"> <span class="status-dot r"></span> Off Track</label>
-          </div>
-        </div>
-        <div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true">This project focuses on applying to at least one data analytics position by the end of the semester. In this project I will identify skill-gaps, showcase my abilities through projects, and further develop my abilities in order to confidently and readily enter the data analytics field. My current focus is on developing my portfolio website, starting my job gap analysis, and working to progress on my google data analytics certificate. I am also working on a new data analytics project which I am hoping to add to my portfolio.</div></div>
-        <div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true">One risk is being unable to complete the google data analytics course in time due to time constraints and schedule conflicts. A challenge is deciding which task to prioritize.</div></div>
-        <div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true">Researching data analytics positions to identify skill gaps, continue developing my portfolio, and working on my certificate.</div></div>
-      </div>
-    </details>
-
-    <!-- ==== PERSON 3 ==== -->
-    <details class="card" data-status="on" open="">
-      <summary>
-        <span class="status-dot g"></span>
-        <span class="person">Mohammad Ansari</span>
-        <span class="proj">Showcasing Content to Audience</span>
-      </summary>
-      <div class="content">
-        <div class="row"><div class="label">Project Link</div><div class="field" contenteditable="true">https://makeshifth2.github.io/CIS4860-HTML-Presentation/project_charter.html</div></div>
-        <div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true">Mohammad Ansari</div></div>
-        <div class="row">
-          <div class="label">Health Bubble</div>
-          <div class="health">
-            <label class="badge" style="color:var(--green)"><input type="radio" name="h3" value="on"> <span class="status-dot g"></span> On Track</label>
-            <label class="badge" style="color:var(--yellow)"><input type="radio" name="h3" checked="" value="risk"> <span class="status-dot y"></span> At Risk</label>
-            <label class="badge" style="color:var(--red)"><input type="radio" name="h3" value="off"> <span class="status-dot r"></span> Off Track</label>
-          </div>
-        </div>
-        <div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true">The goal of this project is to create to showcase to the audience for the purpose of entertainment or usage of assets. The content created consists of: Game maps, 3D assets, and digital art that can be converted and utilized for short form content. Data is collected from the platforms that the content is shared on.</div></div>
-        <div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true">Unexpected limitations, and limited freeware may impose challenges to the project which will require efficient workarounds.</div></div>
-        <div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true">All necessary software for the project has been installed. The next step is creating the content, and preparing it for sharing</div></div>
-      </div>
-    </details>
-
-    <!-- ==== PERSON 4 ==== -->
-    <details class="card" data-status="off" open="">
-      <summary>
-        <span class="status-dot r"></span>
-        <span class="person">Luis Medina</span>
-        <span class="proj">– Project Entry</span>
-      </summary>
-      <div class="content">
-        <div class="row"><div class="label">Project Name</div><div class="field" contenteditable="true"></div></div>
-        <div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true"></div></div>
-        <div class="row">
-          <div class="label">Health Bubble</div>
-          <div class="health">
-            <label class="badge" style="color:var(--green)"><input type="radio" name="h4" checked="" value="on"> <span class="status-dot g"></span> On Track</label>
-            <label class="badge" style="color:var(--yellow)"><input type="radio" name="h4" value="risk"> <span class="status-dot y"></span> At Risk</label>
-            <label class="badge" style="color:var(--red)"><input type="radio" name="h4" value="off"> <span class="status-dot r"></span> Off Track</label>
-          </div>
-        </div>
-        <div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true"></div></div>
-        <div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true"></div></div>
-        <div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true"></div></div>
-      </div>
-    </details>
-  </main>
-
-  <div class="footer-note wrap">Tip: Click any placeholder text to edit. Use the status radios to set each card’s health bubble and the filter above to view only certain states.</div>
-
-  <script>
+<main id="cards">
+<!-- ==== PERSON 1 (Fernando Olvera) ==== -->
+<details class="card" data-status="on" open="">
+<summary>
+<span class="status-dot g"></span>
+<span class="person">Fernando Olvera</span>
+<span class="proj">– IT Field Career</span>
+</summary>
+<div class="content">
+<div class="row">
+<div class="label">Project Link</div>
+<div class="field" contenteditable="true">https://fernando-olvera.github.io/HTML-Project-Charter/</div>
+</div>
+<div class="row">
+<div class="label">Project Owner</div>
+<div class="field" contenteditable="true">Fernando Olvera</div>
+</div>
+<div class="row">
+<div class="label">Health Bubble</div>
+<div class="health">
+<label class="badge" style="color:var(--green)"><input checked="" name="h1" type="radio" value="on"> <span class="status-dot g"></span> On Track</label>
+<label class="badge" style="color:var(--yellow)"><input name="h1" type="radio" value="risk"> <span class="status-dot y"></span> At Risk</label>
+<label class="badge" style="color:var(--red)"><input name="h1" type="radio" value="off"> <span class="status-dot r"></span> Off Track</label>
+</div>
+</div>
+<div class="row">
+<div class="label">Summary (2–3 sentences)</div>
+<div class="field" contenteditable="true">This project centers on securing an entry-level IT role. It highlights key IT competencies, professional growth, and long-term career objectives.&nbsp;<div><br></div><div>The project integrates academic achievements, skill-gap identification, and developmental planning into a structured pathway toward a successful career in information technology.</div></div>
+</div>
+<div class="row">
+<div class="label">Challenge / Risk</div>
+<div class="field" contenteditable="true">Balancing multiple professional development tasks (such as skill-building, resume updates, and applying to multiple positions.)<div><br></div><div>Managing other coursework demands consistent time management. Ensuring the project stays aligned with evolving career goals is the main challenge.</div></div>
+</div>
+<div class="row">
+<div class="label">Next Step</div>
+<div class="field" contenteditable="true">Continue learning SQL through online resources for the upcoming milestone.&nbsp; Skill completion at 50% and ON TRACK.</div>
+</div>
+</div>
+</details>
+<!-- ==== PERSON 2 ==== -->
+<details class="card" data-status="risk" open="">
+<summary>
+<span class="status-dot y"></span>
+<span class="person">Tehreem Butt</span>
+<span class="proj">– Data Analysis Job Entry</span>
+</summary>
+<div class="content">
+<div class="row"><div class="label">Project Link</div><div class="field" contenteditable="true">https://mito-iyuu.github.io/Project-Charter-Portfolio/</div></div>
+<div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true">Tehreem Butt</div></div>
+<div class="row">
+<div class="label">Health Bubble</div>
+<div class="health">
+<label class="badge" style="color:var(--green)"><input name="h2" type="radio" value="on"> <span class="status-dot g"></span> On Track</label>
+<label class="badge" style="color:var(--yellow)"><input checked="" name="h2" type="radio" value="risk"> <span class="status-dot y"></span> At Risk</label>
+<label class="badge" style="color:var(--red)"><input name="h2" type="radio" value="off"> <span class="status-dot r"></span> Off Track</label>
+</div>
+</div>
+<div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true">This project focuses on applying to at least one data analytics position by the end of the semester. In this project I will identify skill-gaps, showcase my abilities through projects, and further develop my abilities in order to confidently and readily enter the data analytics field. My current focus is on developing my portfolio website, starting my job gap analysis, and working to progress on my google data analytics certificate. I am also working on a new data analytics project which I am hoping to add to my portfolio.</div></div>
+<div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true">One risk is being unable to complete the google data analytics course in time due to time constraints and schedule conflicts. A challenge is deciding which task to prioritize.</div></div>
+<div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true">Researching data analytics positions to identify skill gaps, continue developing my portfolio, and working on my certificate.</div></div>
+</div>
+</details>
+<!-- ==== PERSON 3 ==== -->
+<details class="card" data-status="on" open="">
+<summary>
+<span class="status-dot g"></span>
+<span class="person">Mohammad Ansari</span>
+<span class="proj">Showcasing Content to Audience</span>
+</summary>
+<div class="content">
+<div class="row"><div class="label">Project Link</div><div class="field" contenteditable="true">https://makeshifth2.github.io/CIS4860-HTML-Presentation/project_charter.html</div></div>
+<div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true">Mohammad Ansari</div></div>
+<div class="row">
+<div class="label">Health Bubble</div>
+<div class="health">
+<label class="badge" style="color:var(--green)"><input name="h3" type="radio" value="on"> <span class="status-dot g"></span> On Track</label>
+<label class="badge" style="color:var(--yellow)"><input checked="" name="h3" type="radio" value="risk"> <span class="status-dot y"></span> At Risk</label>
+<label class="badge" style="color:var(--red)"><input name="h3" type="radio" value="off"> <span class="status-dot r"></span> Off Track</label>
+</div>
+</div>
+<div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true">The goal of this project is to create to showcase to the audience for the purpose of entertainment or usage of assets. The content created consists of: Game maps, 3D assets, and digital art that can be converted and utilized for short form content. Data is collected from the platforms that the content is shared on.</div></div>
+<div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true">Unexpected limitations, and limited freeware may impose challenges to the project which will require efficient workarounds.</div></div>
+<div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true">All necessary software for the project has been installed. The next step is creating the content, and preparing it for sharing</div></div>
+</div>
+</details>
+<!-- ==== PERSON 4 ==== -->
+<details class="card" data-status="off" open="">
+<summary>
+<span class="status-dot r"></span>
+<span class="person">Luis Medina</span>
+<span class="proj">– Project Entry</span>
+</summary>
+<div class="content">
+<div class="row"><div class="label">Project Name</div><div class="field" contenteditable="true"></div></div>
+<div class="row"><div class="label">Project Owner</div><div class="field" contenteditable="true"></div></div>
+<div class="row">
+<div class="label">Health Bubble</div>
+<div class="health">
+<label class="badge" style="color:var(--green)"><input checked="" name="h4" type="radio" value="on"> <span class="status-dot g"></span> On Track</label>
+<label class="badge" style="color:var(--yellow)"><input name="h4" type="radio" value="risk"> <span class="status-dot y"></span> At Risk</label>
+<label class="badge" style="color:var(--red)"><input name="h4" type="radio" value="off"> <span class="status-dot r"></span> Off Track</label>
+</div>
+</div>
+<div class="row"><div class="label">Summary (2–3 sentences)</div><div class="field" contenteditable="true"></div></div>
+<div class="row"><div class="label">Challenge / Risk</div><div class="field" contenteditable="true"></div></div>
+<div class="row"><div class="label">Next Step</div><div class="field" contenteditable="true"></div></div>
+</div>
+</details>
+</main>
+<div class="footer-note wrap">Tip: Click any placeholder text to edit. Use the status radios to set each card’s health bubble and the filter above to view only certain states.</div>
+<script>
   // Change handler: update card data-status and the summary dot
   document.querySelectorAll('.health input[type="radio"]').forEach(r => {
     r.addEventListener('change', e => {
